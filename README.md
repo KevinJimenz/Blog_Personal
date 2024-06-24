@@ -1,2 +1,2 @@
 # Blog_Personal
-Proyecto sobre un blog personal usando React
+Proyecto sobre un blog personal usando React y Sequelize 
