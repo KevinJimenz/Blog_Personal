@@ -1,11 +1,13 @@
-// ! Pagina principal
-import Navbar from "../components/navbar"
-import '../assets/App.css'
+import Header from "../components/header"
+import Main from "../components/main"
+import Footer from "../components/footer"
 function App() {
-
+ 
   return (
     <>
-       <Navbar/>
+        <Header />
+        <Main />
+        <Footer />
     </>
   )
 }

@@ -1,0 +1,125 @@
+/* Liberia para el tipo de letra
+font-family: 'MedievalSharp', cursive;
+*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+/*
+    Todo Estilo Header
+*/
+
+.contenedor_header {
+    display: flex;
+    align-items: center;
+    background-color: #171717;
+    padding: 20px;
+    gap: 40px;
+}
+
+.logo {
+   height: 150px;
+   width: 150px;
+   background: #18181b;
+   border: solid 1px #27272a ;
+   border-radius: 75px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.logo img {
+    width: 200px;
+}
+.search_bar {
+   height: 90px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   width: 100%;
+   background: #18181b;
+   border: solid 1px #27272a;
+   border-radius: 75px;
+}
+.search_bar input {
+    width: 60%;
+    height: 45px;
+    border-style: none;
+    border-radius: 15px;
+    text-align: center ;
+    font-size: 23px;
+    font-family: 'MedievalSharp', cursive;
+}
+.search_bar a {
+    width: 11%;
+    text-align: center;
+    text-decoration: none;
+    color: #ffff;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+    background: #004ED5;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+.search_bar a:hover {
+    color: black;
+    background: #ffff;
+    border: #18181b;
+}
+/*
+    Todo Fin Estilo Header
+*/
+/*
+    Todo Estilo Main
+*/
+.contenedor_main {
+    height: 700px;
+    background-color: #171717;
+    padding: 20px;
+}
+.main {
+    background: #181818;
+    border: solid 1px #27272a ;
+    border-radius: 30px;
+    height: 650px;
+}
+/*
+    Todo Fin Estilo Main
+*/
+
+/*
+    Todo Fin Estilo Footer
+*/
+.contenedor_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #171717;
+    padding: 20px;
+    gap: 20px;
+}
+.contenedor_footer .logo {
+    height: 110px;
+    width: 110px;
+    background: #18181b;
+    border: solid 1px #27272a ;
+    border-radius: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor_footer .logo img {
+    width: 130px;
+}
+.contenedor_footer .title {
+    height: 75px;
+}
+.contenedor_footer .title p {
+    color: #ffff;
+    font-size: 48px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_footer .links {
+    display: flex;
+    gap: 20px;
+    height: 38px;
+}
+.contenedor_footer .links a  {
+    color: #ffff;
+}
