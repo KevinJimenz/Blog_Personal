@@ -27,18 +27,22 @@ font-family: 'MedievalSharp', cursive;
 .logo img {
     width: 200px;
 }
-.search_bar {
-   height: 90px;
-   display: flex;
-   align-items: center;
-   justify-content: space-around;
+.items {
+   height: 95px;
    width: 100%;
    background: #18181b;
    border: solid 1px #27272a;
    border-radius: 75px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+.search_bar {
+    width: 60%;
 }
 .search_bar input {
-    width: 60%;
+    width: 100%;
     height: 45px;
     border-style: none;
     border-radius: 15px;
@@ -46,18 +50,35 @@ font-family: 'MedievalSharp', cursive;
     font-size: 23px;
     font-family: 'MedievalSharp', cursive;
 }
-.search_bar a {
-    width: 11%;
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+.buttons .btn_login {
+    padding: 4px 9px 4px 9px;
     text-align: center;
     text-decoration: none;
-    color: #ffff;
     font-size: 20px;
     font-family: 'MedievalSharp', cursive ;
+    color: #ffff;
     background: #004ED5;
     border-radius: 20px;
+    border-style: none;
     transition: all 0.5s ease;
 }
-.search_bar a:hover {
+.buttons .btn_register {
+    padding: 4px 9px 4px 9px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+    color: #ffff;
+    background: #07be01;
+    border-radius: 20px;
+    border-style: none;
+    transition: all 0.5s ease;
+}
+.buttons button:hover {
     color: black;
     background: #ffff;
     border: #18181b;
@@ -84,10 +105,11 @@ font-family: 'MedievalSharp', cursive;
 */
 
 /*
-    Todo Fin Estilo Footer
+    Todo Estilo Footer
 */
 .contenedor_footer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #171717;
@@ -122,4 +144,52 @@ font-family: 'MedievalSharp', cursive;
 }
 .contenedor_footer .links a  {
     color: #ffff;
+}
+/*
+    Todo Fin Estilo Footer
+*/
+
+/*
+    Todo Estilo modal 
+*/
+.modal-header {
+    background: #171717;
+    border: solid 1px #171717;
+    color: white;
+}
+.modal-header button  {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 20px;
+}
+.modal-body {
+    background: #27272a;
+    color: #ffff;
+}
+
+/* 
+    Todo Estilo formulario login y register
+*/
+.btn_form {
+    display: flex;
+    justify-content: end;
+}
+.form .form-label, h5{
+    font-family: 'MedievalSharp', cursive;
+}
+.btn_form button {
+    padding: 5px 12px 5px 12px;
+    border: #004ED5;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #004ED5;
+    color: white;
+    font-size: 18px;
+    font-family: 'MedievalSharp', cursive;
+}
+.btn_form button:hover {
+    color: black;
+    background: #ffff;
+    border: #004ED5;
+    transition: all 0.5s ease;
 }
