@@ -27,7 +27,7 @@ const Header = () => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <form className="form_login">
+                            <form className="form">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />

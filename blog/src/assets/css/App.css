@@ -5,13 +5,16 @@ font-family: 'MedievalSharp', cursive;
 /*
     Todo Estilo Header
 */
-
+body {
+    background-color: #171717;
+}
 .contenedor_header {
     display: flex;
     align-items: center;
     background-color: #171717;
     padding: 20px;
     gap: 40px;
+    flex-wrap: nowrap;
 }
 
 .logo {
@@ -23,12 +26,19 @@ font-family: 'MedievalSharp', cursive;
    display: flex;
    align-items: center;
    justify-content: center;
+   transition: all 0.8s ease;
+   -webkit-transform: scale(1);
+   transform: scale(1);
+}
+.logo:hover {
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
 }
 .logo img {
     width: 200px;
 }
 .items {
-   height: 95px;
+   height: 110px;
    width: 100%;
    background: #18181b;
    border: solid 1px #27272a;
@@ -95,10 +105,42 @@ font-family: 'MedievalSharp', cursive;
     padding: 20px;
 }
 .main {
+    height: 650px;
+    width: 100%;
+    padding: 20px;
     background: #181818;
     border: solid 1px #27272a ;
     border-radius: 30px;
-    height: 650px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.main .contenedor-card {
+    width: 400px;
+}
+.main .card {
+    height: 350px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.main .card img {
+    width: 200px;
+}
+@media (max-width: 768px) {
+    .main .card {
+        height: 220px;
+        width: 300px;
+    }
 }
 /*
     Todo Fin Estilo Main
@@ -193,3 +235,13 @@ font-family: 'MedievalSharp', cursive;
     border: #004ED5;
     transition: all 0.5s ease;
 }
+/*
+    Todo este media lo que hace es un wrap y ajusta los contenedor hijos al centro
+    Todo cuando una es una pantalla pequeña
+*/
+@media (max-width: 768px) {
+    .contenedor_header {
+      flex-wrap: wrap; 
+      justify-content: center;
+    }
+  }
