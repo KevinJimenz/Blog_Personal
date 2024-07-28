@@ -134,7 +134,8 @@ body {
     scrollbar-width: none;
 }
 .main .card img {
-    width: 200px;
+    width: 270px;
+    background: #171717;
 }
 @media (max-width: 768px) {
     .main .card {
