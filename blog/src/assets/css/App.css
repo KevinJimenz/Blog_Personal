@@ -100,7 +100,7 @@ body {
     Todo Estilo Main
 */
 .contenedor_main {
-    height: 700px;
+    height: 800px;
     background-color: #171717;
     padding: 20px;
 }
@@ -247,9 +247,171 @@ body {
     Todo este media lo que hace es un wrap y ajusta los contenedor hijos al centro
     Todo cuando una es una pantalla pequeña
 */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user_name {
+    height:26px;
+}
+.user p {
+    color: #ffff;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.user img {
+    width: 100px;
+}
+.textAdmin {
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+.main2 {
+    width: 100%;
+    height: 750px;
+    padding: 10px;
+    background: #181818;
+    border: solid 1px #27272a ;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+}
+.contenedor_main .left {
+    width: 60%;
+    background: #18181b;
+    border: solid 1px #27272a;
+    border-radius: 30px;
+    padding: 12px;
+}
+.contenedor_main .right {
+    width: 38.2%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.contenedor_main .right .form {
+    width: 100%;
+    border: solid 1px #27272a;
+    background: #18181b;
+    padding: 10px;
+    border-radius: 30px;
+} 
+.contenedor_main .right .form .img {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+.contenedor_main .right .form .img label {
+    color: #ffff;
+    font-size: 24px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .img input {
+    color: black;
+    background: #ffff;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+.contenedor_main .right .form .title label {
+    color: #ffff;
+    font-size: 24px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .title input {
+    color: black;
+    background: #ffff;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+.contenedor_main .right .form .description label {
+    color: #ffff;
+    font-size: 24px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .description input {
+    color: black;
+    background: #ffff;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .button_upload {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px;
+}
+.contenedor_main .right .form .button_upload button {
+    width: 100%;
+    color: #fff ;
+    font-size: 19px;
+    font-family: 'MedievalSharp', cursive  ;
+    background: #004ED5;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+    transition: all 0.5s ease;
+}
+.contenedor_main .right .form .button_upload button:hover {
+    color: black;
+    background: #fff;
+    border: #18181b; 
+}
+.contenedor_main .right .form .button_delete {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px;
+}
+.contenedor_main .right .form .button_delete button {
+    width: 100%;
+    color: #fff ;
+    font-size: 19px;
+    font-family: 'MedievalSharp', cursive  ;
+    background: #FF0505 ;
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+    transition: all 0.5s ease;
+}
+.contenedor_main .right .form .button_delete button:hover {
+    color: black;
+    background: #fff;
+    border: #18181b; 
+} 
+
 @media (max-width: 768px) {
     .contenedor_header {
       flex-wrap: wrap; 
       justify-content: center;
+    }
+    .contenedor_main .left,
+    .contenedor_main .right {
+        width: 100%;
     }
   }
