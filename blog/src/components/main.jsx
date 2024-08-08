@@ -14,8 +14,47 @@ const Main = ({ isMain, setHeader }) => {
                             handleHeader(true)
                         }
                     </script>
-                    <section className="left"> </section>
+                    <section className="left">
+                    </section>
+                    <div className="modal fade" id="modal_create" >
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="staticBackdropLabel">Create a Publication</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    <form className="form" encType="multipart/form-data">
+                                        <div className="mb-3">
+                                            <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
+                                            <input type="text" className="form-control" id="email" aria-describedby="emailHelp" />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
+                                            <input type="text" className="form-control " id="password" />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="exampleInputEmail1" className="form-label">Photo</label>
+                                            <input type="file" className="form-control" name='photo' aria-describedby="emailHelp" />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="exampleInputPassword1" className="form-label">Select a Category</label>
+                                            <select className='form-control' id="select_id">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                        <div className="btn_form">
+                                            <button type="submit" >Create</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <section className="right">
+
+                        <button type="button" className="button_create" data-bs-toggle="modal" data-bs-target="#modal_create">Create</button>
+
                         <div className="col-12 form">
                             <form>
                                 <div className="img">
