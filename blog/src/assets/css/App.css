@@ -244,7 +244,10 @@ body {
 .modal-body {
     color: black;
 }
-
+.modal-body .form .description {
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive;
+}
 /* 
     Todo Estilo formulario login y register
 */
@@ -271,11 +274,6 @@ body {
     border: #004ED5;
     transition: all 0.5s ease;
 }
-/*
-    Todo este media lo que hace es un wrap y ajusta los contenedor hijos al centro
-    Todo cuando una es una pantalla pequeña
-*/
-
 .user {
     display: flex;
     align-items: center;
@@ -298,7 +296,7 @@ body {
 }
 .main2 {
     width: 100%;
-    height: 750px;
+    height: 780px;
     padding: 10px;
     background: #181818;
     border: solid 1px #27272a ;
@@ -307,10 +305,11 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 .contenedor_main .left {
-    max-height: 730px;
+    max-height: 760px;
     width: 60%;
     background: #18181b;
     border: solid 1px #27272a;
@@ -327,8 +326,8 @@ body {
 .contenedor_main  .contenedor-card2 {
     width: 320px;
 }
-.contenedor_main  .contenedor-card2 .card2 {
-    height: 320px;
+.contenedor_main  .contenedor-card2 .card {
+    height: 330px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -338,6 +337,7 @@ body {
     scrollbar-width: none;
 }
 .contenedor_main .left .contenedor-card2 .card img{
+    padding-top: 5%;
     width: 240px;
 }
 .contenedor_main .right {
@@ -346,6 +346,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    overflow-y: auto;
+    
 }
 .contenedor_main .right .form {
     width: 100%;
@@ -381,6 +383,26 @@ body {
     gap: 8px;
     padding: 10px;
 }
+.contenedor_main .right .form .description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+.contenedor_main .right .form .description textarea {
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive ;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.contenedor_main .right .form .category {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
 .contenedor_main .right .form .title label {
     color: #ffff;
     font-size: 24px;
@@ -406,6 +428,18 @@ body {
     border-radius: 5px;
     font-size: 20px;
     font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .category label {
+    color: #ffff;
+    font-size: 24px;
+    font-family: 'MedievalSharp', cursive ;
+}
+.contenedor_main .right .form .category select {
+    color: black;
+    background: #ffff;
+    border-style: none;
+    border-radius: 5px;
+    font-size: 22px;
 }
 .contenedor_main .right .button_create { 
     width: 100%;
@@ -475,6 +509,10 @@ body {
     .contenedor_main .left,
     .contenedor_main .right {
         width: 100%;
+    }
+    .main2 {
+        overflow-y: auto;
+        scrollbar-width: none;
     }
     .main .card {
         height: 220px;
