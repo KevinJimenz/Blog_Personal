@@ -246,7 +246,6 @@ body {
 }
 .modal-body .form .description {
     font-size: 20px;
-    font-family: 'MedievalSharp', cursive;
 }
 /* 
     Todo Estilo formulario login y register
@@ -346,8 +345,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    overflow-y: auto;
-    
 }
 .contenedor_main .right .form {
     width: 100%;
@@ -374,7 +371,6 @@ body {
     border-style: none;
     border-radius: 5px;
     font-size: 20px;
-    font-family: 'MedievalSharp', cursive ;
 }
 .contenedor_main .right .form .title {
     width: 100%;
@@ -389,12 +385,6 @@ body {
     flex-direction: column;
     gap: 8px;
     padding: 10px;
-}
-.contenedor_main .right .form .description textarea {
-    font-size: 20px;
-    font-family: 'MedievalSharp', cursive ;
-    overflow-y: auto;
-    scrollbar-width: none;
 }
 .contenedor_main .right .form .category {
     width: 100%;
@@ -414,20 +404,18 @@ body {
     border-style: none;
     border-radius: 5px;
     font-size: 20px;
-    font-family: 'MedievalSharp', cursive ;
 }
 .contenedor_main .right .form .description label {
     color: #ffff;
     font-size: 24px;
     font-family: 'MedievalSharp', cursive ;
 }
-.contenedor_main .right .form .description input {
+.contenedor_main .right .form .description textarea {
     color: black;
     background: #ffff;
     border-style: none;
     border-radius: 5px;
     font-size: 20px;
-    font-family: 'MedievalSharp', cursive ;
 }
 .contenedor_main .right .form .category label {
     color: #ffff;

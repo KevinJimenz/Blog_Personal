@@ -14,9 +14,12 @@ const Main_Admin = () => {
         title: "", 
         description: ""
     });
-    const [publications, setPublications] = useState([]); // Estado para almacenar las publicaciones
-    const [photoUrls, setPhotoUrls] = useState([]); // Estado para almacenar las url de las imagenes de las publicaciones
 
+    const catchInfoCard = (id, title, description) => {
+        setFormDataCard({id,title,description});
+    }
+
+    const [publications, setPublications] = useState([]); // Estado para almacenar las publicaciones
     // Funcion que recarga el contenedor en donde se muestran las publicaciones
     const reloadContainer = () => {
         fetch(`https://apiblog-wj9s.onrender.com/listar/publication`)
@@ -30,6 +33,7 @@ const Main_Admin = () => {
     useEffect(() => {
         reloadContainer();
     }, [])
+
     const [categories, setCategories] = useState([]); // Estado para almacenar las categorías
     // Cargar categorías una vez cuando el componente se monta
     useEffect(() => {
@@ -40,6 +44,7 @@ const Main_Admin = () => {
             });
     }, []);
 
+    const [photoUrls, setPhotoUrls] = useState([]); // Estado para almacenar las url de las imagenes de las publicaciones
     const sendImage = (image) => {
         // Recorro el arreglo y obtengo solo el nombre de la imagen
         for (let index = 0; index < image.length; index++) 
@@ -57,10 +62,7 @@ const Main_Admin = () => {
                 })
         }
     }
-    const catchInfoCard = (id, title, description) => {
-        setFormDataCard({id,title,description});
-    }
-
+   
     const [formDataCreate, setFormDataCreate] = useState({
         title: "",
         description: "",
@@ -112,11 +114,11 @@ const Main_Admin = () => {
     });
 
     const changeValueDelete = (id, title) => {
-        setFormDataDelete({
-            id: id,
-            title: title
-        });
-        console.log(formDataDelete)
+        const key1 = "id"
+        const key2 = "title"
+        setFormDataDelete({...formDataCard,
+            [key1]: id,
+            [key2]: title});
     };
 
     const sendDataDelete = (e) => {
@@ -130,9 +132,12 @@ const Main_Admin = () => {
             text: `¿Estas seguro que quieres eliminar esta publicación?`,
             icon: "warning",
             confirmButtonText: "Eliminar",
+            showCloseButton: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://apiblog-wj9s.onrender.com/eliminar/publication/${data.id}`)
+                fetch(`https://apiblog-wj9s.onrender.com/eliminar/publication/${data.id}`,{
+                    method: "DELETE"
+                })
                 .then((response)=>response.json())
                 .then((data)=>{
                     if ( data.status == "OK")
@@ -149,7 +154,6 @@ const Main_Admin = () => {
                         });
                     }
                     else {
-                        
                         mySwal.fire({
                             title: "Revisa la información",
                             text: data.answer,
@@ -166,7 +170,78 @@ const Main_Admin = () => {
         });
     }
 
+    const [formaDataEdit, setFormDataEdit] = useState({
+        title: "",
+        description: "",
+        selectEdit: ""
+    })
 
+    useEffect(()=>{
+        setFormDataEdit({
+            title: formDataCard.title,
+            description: formDataCard.description,
+            select:''})
+    }, [formDataCard.title,formDataCard.description,''])
+
+    const changeValueEdit = (e) =>{
+        const key = e.target.id;
+        const value = e.target.value;
+        setFormDataEdit({ ...formaDataEdit, [key]: value });
+    }
+
+    const sendDataEdit = (e) => {
+        e.preventDefault();
+        editPublication(formaDataEdit);
+    };
+
+    const editPublication = (data) =>{
+        const id = formDataCard.id;
+        const title = data.title;
+        const description = data.description;
+        const idCategory = data.selectEdit; // id de la Categoria seleccionada
+        form = document.getElementById("formEdit");
+        const formData = new FormData(form);
+        console.log(formData)
+        const url = `https://apiblog-wj9s.onrender.com/editar/publication/${id}/${title}/${description}/${idCategory}`;
+        fetch(url, {
+            method: "PUT",
+            body: formData,
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data)=>{
+            if (data.status == "OK")
+            {
+                mySwal.fire({
+                    title: "¡¡Felicidades!!",
+                    text: data.answer,
+                    icon: "success",
+                    confirmButtonText: "Ver publicaciones",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        reloadContainer();
+                        formDataCard.id = ""
+                        formaDataEdit.title = ""
+                        formaDataEdit.description = ""
+                        document.getElementById('img').value = ''
+                        document.getElementById('selectEdit').selectedIndex = 0;
+                    }
+                });
+            }else{
+                mySwal.fire({
+                    title: "Revisa la información",
+                    text: data.answer,
+                    icon: "error",
+                    confirmButtonText: "Ver publicaciones",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        reloadContainer();
+                    }
+                });
+            }
+        })
+    }
     return (
         <>
             <div className="contenedor_main">
@@ -237,22 +312,22 @@ const Main_Admin = () => {
                         <button type="button" className="button_create" data-bs-toggle="modal" data-bs-target="#modal_create" > Create</button>
 
                         <div className="col-12 form">
-                            <form>
+                            <form className="form" id="formEdit" onSubmit={sendDataEdit} encType="multipart/form-data">
                                 <div className="img">
                                     <label className="">Image</label>
-                                    <input type="file" className="" />
+                                    <input type="file" id="img" name="photo" className="" />
                                 </div>
                                 <div className="title">
                                     <label className="">Title</label>
-                                    <input type="text" value={formDataCard.title} onChange={(e) => setFormDataCard({ ...formDataCard, title: e.target.value })} className="" />
+                                    <input type="text" id="title" value={formaDataEdit.title} onChange={changeValueEdit} className="title" />
                                 </div>
                                 <div className="description">
                                     <label className="">Description</label>
-                                    <textarea type="text" value={formDataCard.description} onChange={(e) => setFormDataCard({ ...formDataCard, description: e.target.value })} className="" />
+                                    <textarea type="text" id="description" value={formaDataEdit.description} onChange={changeValueEdit} className="description" />
                                 </div>
                                 <div className="category">
                                     <label className="">Category</label>
-                                    <select name="" id="select">
+                                    <select id="selectEdit" onChange={changeValueEdit}>
                                         <option>
                                             Select a Category...
                                         </option>
