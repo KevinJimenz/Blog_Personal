@@ -100,6 +100,7 @@ const Main_Admin = () => {
                     text: data.message,
                     icon: "success",
                     confirmButtonText: "Ver publicación",
+                    showCloseButton: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         reloadContainer();
@@ -147,6 +148,7 @@ const Main_Admin = () => {
                             text: data.answer,
                             icon: "success",
                             confirmButtonText: "Ver publicaciones",
+                            showCloseButton: true,
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 reloadContainer();
@@ -159,6 +161,7 @@ const Main_Admin = () => {
                             text: data.answer,
                             icon: "error",
                             confirmButtonText: "Ver publicaciones",
+                            showCloseButton: true,
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 reloadContainer();
@@ -218,6 +221,7 @@ const Main_Admin = () => {
                     text: data.answer,
                     icon: "success",
                     confirmButtonText: "Ver publicaciones",
+                    showCloseButton: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         reloadContainer();
@@ -234,6 +238,7 @@ const Main_Admin = () => {
                     text: data.answer,
                     icon: "error",
                     confirmButtonText: "Ver publicaciones",
+                    showCloseButton: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         reloadContainer();

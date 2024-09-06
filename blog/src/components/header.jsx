@@ -8,20 +8,20 @@ import reactContent from 'sweetalert2-react-content'
  */
 const mySwal = reactContent(swal);
 const Header = ({ setMain, setHeader, setProfileUser }) => {
-    
-    const fillProfile_user = (username, photo) => {
-        setProfileUser(username,photo)
+
+    const fillProfile_user = (username, photo, email) => {
+        setProfileUser(username, photo, email)
     }
 
     useEffect(() => {
-           // Evento cuando el modal se cierra
-           const modalElement = document.getElementById('modal_login');
-           modalElement.addEventListener('hidden.bs.modal', () => {
-               // Asegúrate de que se remuevan las clases que bloquean la interacción
-               document.body.classList.remove('modal-open');
-               document.querySelector('.modal-backdrop')?.remove();
-               
-           })
+        // Evento cuando el modal se cierra
+        const modalElement = document.getElementById('modal_login');
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            // Asegúrate de que se remuevan las clases que bloquean la interacción
+            document.body.classList.remove('modal-open');
+            document.querySelector('.modal-backdrop')?.remove();
+
+        })
     }, []);
 
     // * Form Sign-i / Login
@@ -62,40 +62,44 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                 return response.json();
             })
             .then((data) => {
-                if (data.rol.toLowerCase() == "admin") {
+                if (data.rol === "admin") {
                     mySwal.fire({
                         title: '¡¡Bienvenido Señor Kevin!!',
                         icon: 'success',
-                        confirmButtonText: 'Siguiente'
+                        confirmButtonText: 'Siguiente',
+                        showCloseButton: true,
                     })
-                    .then((result) => {
-                        if (result.isConfirmed) {
-                            const name = data.username;
-                            const pathPhoto = data.photo;
-                            const namePhoto = pathPhoto.replace('uploads/', '');
-                            fetch(`https://apiblog-wj9s.onrender.com/traerImagen/users/${namePhoto}`, {
-                                method: 'POST'
-                            })
-                            .then((response) => {
-                                return response.blob();
-                            })
-                            .then((data) => {
-                                setHeader(true);
-                                setMain(true); 
-                                const url = URL.createObjectURL(data);
-                                fillProfile_user(name,url);
-                            })
-                        }
-                    });
+                        .then((result) => {
+                            if (result.isConfirmed) {
+                                const name = data.username;
+                                const pathPhoto = data.photo;
+                                const email = data.email;
+                                const namePhoto = pathPhoto.replace('uploads/', '');
+                                fetch(`https://apiblog-wj9s.onrender.com/traerImagen/users/${namePhoto}`, {
+                                    method: 'POST'
+                                })
+                                    .then((response) => {
+                                        return response.blob();
+                                    })
+                                    .then((data) => {
+                                        setHeader(true);
+                                        setMain(true);
+                                        const url = URL.createObjectURL(data);
+                                        fillProfile_user(name, url, email);
+                                    })
+                            }
+                        });
                 }
-                else if (data.rol.toLowerCase() == "user") {
+                else if (data.rol === "user") {
                     mySwal.fire({
                         title: '¡¡Bienvenido a Drakkav!!',
                         icon: 'success',
-                        confirmButtonText: 'Siguiente'
+                        confirmButtonText: 'Siguiente',
+                        showCloseButton: true,
                     })
                     const name = data.username;
                     const pathPhoto = data.photo;
+                    const email = data.email;
                     const namePhoto = pathPhoto.replace('uploads/', '');
                     fetch(`https://apiblog-wj9s.onrender.com/traerImagen/users/${namePhoto}`, {
                         method: 'POST'
@@ -105,9 +109,9 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                         })
                         .then((data) => {
                             setHeader(true);
-                            setMain(false); 
+                            setMain(false);
                             const url = URL.createObjectURL(data);
-                            fillProfile_user(name,url);
+                            fillProfile_user(name, url, email);
                         })
                 }
                 else {
@@ -115,7 +119,8 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                         title: '¡¡Error!!',
                         text: 'No se encuenta registrado, vuelve a intentarlo.',
                         icon: 'error',
-                        cancelButtonText: 'ok'
+                        cancelButtonText: 'ok',
+                        showCloseButton: true,
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = "http://localhost:5173/";
@@ -144,7 +149,8 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                     title: '¡¡Felicidades!!',
                     text: 'Te has registrado al blog.',
                     icon: 'success',
-                    confirmButtonText: 'Siguiente'
+                    confirmButtonText: 'Siguiente',
+                    showCloseButton: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "http://localhost:5173/";

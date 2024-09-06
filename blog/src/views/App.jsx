@@ -10,31 +10,44 @@ function App() {
   const [main, setMain] = useState(false);
   // Estado para cambiar el header 
   const [header, setHeader] = useState(false);
+  const [isAdmin, setAdmin] = useState(false);
   const handleSetMain = (value) => {
     setMain(value);
+    if (value == true)
+    {
+      setAdmin(true)
+    }
+    else{
+      setAdmin(false)
+    }
   };
   const handleSetHeader = (value) => {
     setHeader(value)
   }
-  const [username, setUsername] = useState("");
-  const [userphoto, setUserphoto] = useState("");
-  const handleProfileUser = (name, photo) => {
-    setUsername(name);
-    setUserphoto(photo);
+  const [userName, setUserName] = useState("");
+  const [userPhoto, setUserPhoto] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [login, setLogin] = useState(false);
+  const handleProfileUser = (name, photo, email) => {
+    setUserName(name);
+    setUserPhoto(photo);
+    setUserEmail(email);
+    setLogin(true)
   }
+  
   return (
     <> 
     {
       // Valido que header se debe mostrar
       !header ? (
-        <Header setMain={handleSetMain} setHeader={handleSetHeader} setProfileUser={handleProfileUser} />
+        <Header setMain={handleSetMain} setHeader={handleSetHeader} setProfileUser={handleProfileUser}   />
       ) : (
-        <Header_Admin username={username} userphoto={userphoto} />
+        <Header_Admin userName={userName} userPhoto={userPhoto} isAdmin={isAdmin} />
       )
     }
     { // Valido que main se debe mostrar
       !main ? (
-        <Main setHeader={handleSetHeader} isMain={main} />
+        <Main islogin={login} email_user={userEmail} username={userName} />
       ) : (
         <Main_Admin/>
       )

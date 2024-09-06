@@ -7,8 +7,8 @@ import reactContent from 'sweetalert2-react-content'
  * * reactContent, me permite renderizar contenido de react dentro del Sweetalert2
  */
 const mySwal = reactContent(swal);
-const Header_Admin = ({username, userphoto}) => {
-
+const Header_Admin = ({userName, userPhoto, isAdmin}) => {
+    
     useEffect(() => {
         // Simula el clic en el botón cuando el componente carga
         document.querySelector('.btn_login').click();
@@ -39,11 +39,11 @@ const Header_Admin = ({username, userphoto}) => {
                     </div>
                     <div className="user">
                         <div className="user_name">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modal_logout">{username}</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modal_logout">{userName}</button>
 
                         </div>
                         <div className="user_image"> 
-                            <img src={userphoto} alt="" ></img>
+                            <img src={userPhoto} alt="" ></img>
                         </div>
                     </div>
                 </div>
@@ -51,15 +51,27 @@ const Header_Admin = ({username, userphoto}) => {
 
                     <div className="modal fade" id="modal_login" >
                         <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="staticBackdropLabel">Gestion del Blog</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {isAdmin? (  
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="staticBackdropLabel">Gestion del Blog</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <p className='textAdmin'>En este apartado podra gestionar la informacion del blog.</p>
+                                    </div>
                                 </div>
-                                <div className="modal-body">
-                                    <p className='textAdmin'>En este apartado podra gestionar la informacion del blog.</p>
+                            ):(   
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="staticBackdropLabel">Bienvenido!!!</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <p className='textAdmin'>En este apartado podras ver y comentar sobre diferentes publicaciones.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
 
