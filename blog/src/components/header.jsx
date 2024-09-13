@@ -135,7 +135,7 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
         const email = data.email;
         const pass = data.pass;
         // Llamo el formulario register para obtener la imagen
-        form = document.getElementById('form');
+        const form = document.getElementById('form');
         const formData = new FormData(form);
         const url = `https://apiblog-wj9s.onrender.com/crear/users/${name}/${email}/${pass}`
         fetch(url, {

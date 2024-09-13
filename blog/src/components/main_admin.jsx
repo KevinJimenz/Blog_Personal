@@ -84,7 +84,7 @@ const Main_Admin = () => {
         const title = data.title;
         const description = data.description;
         const id = data.select; // id de la Categoria seleccionada
-        form = document.getElementById("form");
+        const form = document.getElementById("form");
         const formData = new FormData(form);
         const url = `https://apiblog-wj9s.onrender.com/crear/publication/${title}/${description}/${id}`;
         fetch(url, {
@@ -202,7 +202,7 @@ const Main_Admin = () => {
         const title = data.title;
         const description = data.description;
         const idCategory = data.selectEdit; // id de la Categoria seleccionada
-        form = document.getElementById("formEdit");
+        const form = document.getElementById("formEdit");
         const formData = new FormData(form);
         console.log(formData)
         const url = `https://apiblog-wj9s.onrender.com/editar/publication/${id}/${title}/${description}/${idCategory}`;
