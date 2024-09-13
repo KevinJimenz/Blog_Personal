@@ -123,7 +123,7 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                         showCloseButton: true,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "http://localhost:5173/";
+                            location.reload(true);
                         }
                     });
                 }
@@ -153,7 +153,7 @@ const Header = ({ setMain, setHeader, setProfileUser }) => {
                     showCloseButton: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "http://localhost:5173/";
+                        location.reload(true);
                     }
                 });
             })

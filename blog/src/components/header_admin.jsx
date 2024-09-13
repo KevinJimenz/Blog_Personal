@@ -24,7 +24,7 @@ const Header_Admin = ({userName, userPhoto, isAdmin}) => {
 
     // funcion para cerrar sesion
     const cerrarSesion = () => {
-        window.location.href = 'http://localhost:5173/';
+        window.location.href = location.reload(true);
     }
     return (
         <>
